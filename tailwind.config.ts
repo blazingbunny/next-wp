@@ -20,16 +20,24 @@ const config = {
     },
     extend: {
       fontFamily: {
-        sans: ["var(--font-sans)", ...fontFamily.sans],
+        sans: ["var(--font-poppins)", ...fontFamily.sans],
+        heading: ["var(--font-poppins)", ...fontFamily.sans],
       },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
+        background: "#0b0b0b",
         foreground: "hsl(var(--foreground))",
+        surface: "#1a1a1a",
         primary: {
-          DEFAULT: "hsl(var(--primary))",
+          DEFAULT: "#0B66FF",
+          50: "#f0f7ff",
+          100: "#e0effe",
+          500: "#0B66FF",
+          600: "#0052d6",
+          700: "#0047bd",
+          800: "#003ca3",
           foreground: "hsl(var(--primary-foreground))",
         },
         secondary: {
@@ -71,10 +79,20 @@ const config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        fadeUp: {
+          "0%": { opacity: "0", transform: "translateY(20px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        fadeDown: {
+          "0%": { opacity: "0", transform: "translateY(-20px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "fade-up": "fadeUp 0.5s ease-out forwards",
+        "fade-down": "fadeDown 0.5s ease-out forwards",
       },
     },
   },

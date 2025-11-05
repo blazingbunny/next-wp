@@ -1,149 +1,168 @@
-// Craft Imports
-import { Section, Container, Prose } from "@/components/craft";
-import Balancer from "react-wrap-balancer";
-
-// Next.js Imports
+import { Container } from "@/components/container";
+import { Section } from "@/components/section";
+import { SectionTitle } from "@/components/ui/section-title";
+import { Card } from "@/components/ui/card";
+import { Grid } from "@/components/ui/grid";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { FadeIn } from "@/components/animations/fade-in";
 import Link from "next/link";
-
-// Icons
-import { File, Pen, Tag, Diamond, User, Folder } from "lucide-react";
-import { WordPressIcon } from "@/components/icons/wordpress";
-import { NextJsIcon } from "@/components/icons/nextjs";
+import { ArrowRight, Code, Laptop, BarChart, MessageSquare, Mail } from "lucide-react";
+import { siteConfig } from "@/site.config";
 
 // This page is using the craft.tsx component and design system
 export default function Home() {
   return (
-    <Section>
-      <Container>
-        <ToDelete />
-      </Container>
-    </Section>
+    <>
+      {/* Hero Section */}
+      <Section className="bg-surface pt-32">
+        <Container>
+          <div className="flex flex-col items-center text-center space-y-8">
+            <FadeIn>
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold max-w-3xl">
+                Build WordPress Sites with{" "}
+                <span className="text-primary">Next.js</span>
+              </h1>
+            </FadeIn>
+            <FadeIn delay={200}>
+              <p className="text-xl text-muted-foreground max-w-2xl">
+                {siteConfig.site_description}
+              </p>
+            </FadeIn>
+            <FadeIn delay={400}>
+              <div className="flex gap-4">
+                <Button asChild size="lg">
+                  <Link href="/docs">
+                    Get Started <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+                <Button asChild variant="outline" size="lg">
+                  <Link href="/posts">View Examples</Link>
+                </Button>
+              </div>
+            </FadeIn>
+          </div>
+        </Container>
+      </Section>
+
+      {/* Features Section */}
+      <Section>
+        <Container>
+          <FadeIn>
+            <SectionTitle
+              title="Why Next-WP?"
+              subtitle="Next-WP combines the power of WordPress with modern development tools."
+            />
+          </FadeIn>
+          <Grid className="mt-12">
+            <FadeIn delay={200}>
+              <Card hoverable>
+                <Code className="h-10 w-10 text-primary mb-6" />
+                <h3 className="text-xl font-bold mb-2">Modern Development</h3>
+                <p className="text-muted-foreground">
+                  Use TypeScript, React, and modern tooling while keeping WordPress as your CMS.
+                </p>
+              </Card>
+            </FadeIn>
+            <FadeIn delay={400}>
+              <Card hoverable>
+                <Laptop className="h-10 w-10 text-primary mb-6" />
+                <h3 className="text-xl font-bold mb-2">Easy Integration</h3>
+                <p className="text-muted-foreground">
+                  Simple setup process with pre-built components and WordPress integration.
+                </p>
+              </Card>
+            </FadeIn>
+            <FadeIn delay={600}>
+              <Card hoverable>
+                <BarChart className="h-10 w-10 text-primary mb-6" />
+                <h3 className="text-xl font-bold mb-2">High Performance</h3>
+                <p className="text-muted-foreground">
+                  Get blazing fast page loads with server-side rendering and static generation.
+                </p>
+              </Card>
+            </FadeIn>
+          </Grid>
+        </Container>
+      </Section>
+
+      {/* Contact Section */}
+      <Section className="bg-surface">
+        <Container>
+          <div className="flex flex-col lg:flex-row gap-12 items-center">
+            <div className="flex-1 space-y-6">
+              <FadeIn>
+                <SectionTitle
+                  title="Get in Touch"
+                  subtitle="Have questions? We're here to help you get started with Next-WP."
+                  align="left"
+                />
+              </FadeIn>
+              <div className="flex flex-col gap-4">
+                <FadeIn delay={200}>
+                  <Card variant="outline" className="flex items-start gap-4">
+                    <MessageSquare className="h-6 w-6 text-primary mt-1" />
+                    <div>
+                      <h4 className="font-bold mb-1">Documentation</h4>
+                      <p className="text-muted-foreground">
+                        Check out our comprehensive guides and API documentation.
+                      </p>
+                    </div>
+                  </Card>
+                </FadeIn>
+                <FadeIn delay={400}>
+                  <Card variant="outline" className="flex items-start gap-4">
+                    <Mail className="h-6 w-6 text-primary mt-1" />
+                    <div>
+                      <h4 className="font-bold mb-1">Email Support</h4>
+                      <p className="text-muted-foreground">
+                        Get help directly from our development team.
+                      </p>
+                    </div>
+                  </Card>
+                </FadeIn>
+              </div>
+            </div>
+            <FadeIn delay={600}>
+              <Card className="flex-1 w-full">
+                <form className="space-y-4">
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-medium mb-2">
+                      Name
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      className="w-full px-3 py-2 bg-background border rounded-lg"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium mb-2">
+                      Email
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      className="w-full px-3 py-2 bg-background border rounded-lg"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="message" className="block text-sm font-medium mb-2">
+                      Message
+                    </label>
+                    <textarea
+                      id="message"
+                      rows={4}
+                      className="w-full px-3 py-2 bg-background border rounded-lg"
+                    ></textarea>
+                  </div>
+                  <Button className="w-full">Send Message</Button>
+                </form>
+              </Card>
+            </FadeIn>
+          </div>
+        </Container>
+      </Section>
+    </>
   );
 }
-
-// This is just some example TSX
-const ToDelete = () => {
-  return (
-    <main className="space-y-6">
-      <Prose>
-        <h1>
-          <Balancer>Headless WordPress built with the Next.js</Balancer>
-        </h1>
-
-        <p>
-          This is <a href="https://github.com/9d8dev/next-wp">next-wp</a>,
-          created as a way to build WordPress sites with Next.js at rapid speed.
-          This starter is designed with{" "}
-          <a href="https://ui.shadcn.com">shadcn/ui</a>,{" "}
-          <a href="https://craft-ds.com">craft-ds</a>, and Tailwind CSS. Use{" "}
-          <a href="https://components.work">brijr/components</a> to build your
-          site with prebuilt components. The data fetching and typesafety is
-          handled in <code>lib/wordpress.ts</code> and{" "}
-          <code>lib/wordpress.d.ts</code>.
-        </p>
-      </Prose>
-
-      <div className="flex justify-between items-center gap-4">
-        {/* Vercel Clone Starter */}
-        <div className="flex items-center gap-3">
-          <a
-            className="h-auto block"
-            href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2F9d8dev%2Fnext-wp&env=WORDPRESS_URL,WORDPRESS_HOSTNAME&envDescription=Add%20WordPress%20URL%20with%20Rest%20API%20enabled%20(ie.%20https%3A%2F%2Fwp.example.com)%20abd%20the%20hostname%20for%20Image%20rendering%20in%20Next%20JS%20(ie.%20wp.example.com)&project-name=next-wp&repository-name=next-wp&demo-title=Next%20JS%20and%20WordPress%20Starter&demo-url=https%3A%2F%2Fwp.9d8.dev"
-          >
-            {/* eslint-disable-next-line */}
-            <img
-              className="not-prose my-4"
-              src="https://vercel.com/button"
-              alt="Deploy with Vercel"
-              width={105}
-              height={32.62}
-            />
-          </a>
-          <p className="!text-sm sr-only sm:not-sr-only text-muted-foreground">
-            Deploy with Vercel in seconds.
-          </p>
-        </div>
-
-        <div className="flex gap-2 items-center">
-          <WordPressIcon className="text-foreground" width={32} height={32} />
-          <NextJsIcon className="text-foreground" width={32} height={32} />
-        </div>
-      </div>
-
-      <div className="grid md:grid-cols-3 gap-4 mt-6">
-        <Link
-          className="border h-48 bg-accent/50 rounded-lg p-4 flex flex-col justify-between hover:scale-[1.02] transition-all"
-          href="/posts"
-        >
-          <Pen size={32} />
-          <span>
-            Posts{" "}
-            <span className="block text-sm text-muted-foreground">
-              All posts from your WordPress
-            </span>
-          </span>
-        </Link>
-        <Link
-          className="border h-48 bg-accent/50 rounded-lg p-4 flex flex-col justify-between hover:scale-[1.02] transition-all"
-          href="/pages"
-        >
-          <File size={32} />
-          <span>
-            Pages{" "}
-            <span className="block text-sm text-muted-foreground">
-              Custom pages from your WordPress
-            </span>
-          </span>
-        </Link>
-        <Link
-          className="border h-48 bg-accent/50 rounded-lg p-4 flex flex-col justify-between hover:scale-[1.02] transition-all"
-          href="/posts/authors"
-        >
-          <User size={32} />
-          <span>
-            Authors{" "}
-            <span className="block text-sm text-muted-foreground">
-              List of the authors from your WordPress
-            </span>
-          </span>
-        </Link>
-        <Link
-          className="border h-48 bg-accent/50 rounded-lg p-4 flex flex-col justify-between hover:scale-[1.02] transition-all"
-          href="/posts/tags"
-        >
-          <Tag size={32} />
-          <span>
-            Tags{" "}
-            <span className="block text-sm text-muted-foreground">
-              Content by tags from your WordPress
-            </span>
-          </span>
-        </Link>
-        <Link
-          className="border h-48 bg-accent/50 rounded-lg p-4 flex flex-col justify-between hover:scale-[1.02] transition-all"
-          href="/posts/categories"
-        >
-          <Diamond size={32} />
-          <span>
-            Categories{" "}
-            <span className="block text-sm text-muted-foreground">
-              Categories from your WordPress
-            </span>
-          </span>
-        </Link>
-        <a
-          className="border h-48 bg-accent/50 rounded-lg p-4 flex flex-col justify-between hover:scale-[1.02] transition-all"
-          href="https://github.com/9d8dev/next-wp/blob/main/README.md"
-        >
-          <Folder size={32} />
-          <span>
-            Documentation{" "}
-            <span className="block text-sm text-muted-foreground">
-              How to use `next-wp`
-            </span>
-          </span>
-        </a>
-      </div>
-    </main>
-  );
-};

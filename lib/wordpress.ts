@@ -274,6 +274,65 @@ export async function getAllPages(): Promise<Page[]> {
   return wordpressFetch<Page[]>("/wp-json/wp/v2/pages");
 }
 
+// Custom post type: founder
+export async function getAllFounders(): Promise<Post[]> {
+  return wordpressFetch<Post[]>('/wp-json/wp/v2/founder', { per_page: 100 });
+}
+
+export async function getFounderBySlug(slug: string): Promise<Post> {
+  return wordpressFetch<Post[]>('/wp-json/wp/v2/founder', { slug }).then(
+    (items) => items[0]
+  );
+}
+
+// Non-cached variant for debugging or to force fresh ACF data
+export async function getFounderBySlugNoCache(slug: string): Promise<Post> {
+  const url = `${baseUrl}/wp-json/wp/v2/founder?${querystring.stringify({ slug })}`;
+  const response = await fetch(url, {
+    headers: { "User-Agent": "Next.js WordPress Client" },
+    cache: 'no-store',
+  });
+
+  if (!response.ok) {
+    throw new WordPressAPIError(
+      `WordPress API request failed: ${response.statusText}`,
+      response.status,
+      url
+    );
+  }
+
+  const data = await response.json();
+  return data[0];
+}
+
+// Custom post type: person
+export async function getAllPersons(): Promise<Post[]> {
+  return wordpressFetch<Post[]>("/wp-json/wp/v2/person", { per_page: 100 });
+}
+
+export async function getPersonBySlug(slug: string): Promise<Post> {
+  return wordpressFetch<Post[]>("/wp-json/wp/v2/person", { slug }).then(
+    (items) => items[0]
+  );
+}
+
+export async function getPersonBySlugNoCache(slug: string): Promise<Post> {
+  const url = `${baseUrl}/wp-json/wp/v2/person?${querystring.stringify({ slug })}`;
+  const response = await fetch(url, {
+    headers: { "User-Agent": "Next.js WordPress Client" },
+    cache: "no-store",
+  });
+  if (!response.ok) {
+    throw new WordPressAPIError(
+      `WordPress API request failed: ${response.statusText}`,
+      response.status,
+      url
+    );
+  }
+  const data = await response.json();
+  return data[0];
+}
+
 export async function getPageById(id: number): Promise<Page> {
   return wordpressFetch<Page>(`/wp-json/wp/v2/pages/${id}`);
 }
