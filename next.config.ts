@@ -6,13 +6,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: `${process.env.WORDPRESS_HOSTNAME}`,
-        port: "",
-        pathname: "/**",
-      },
-      {
-        protocol: "https",
-        hostname: "cannafeatured.pro",
+        hostname: "api.cannafeatured.pro",
         port: "",
         pathname: "/**",
       },

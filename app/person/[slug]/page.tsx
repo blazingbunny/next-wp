@@ -160,37 +160,35 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
       {/* Content Section */}
       <Section>
         <Container>
-          <div className="grid lg:grid-cols-[1fr_300px] gap-12">
+          <div className="space-y-8">
             <FadeIn>
               <Card className="prose dark:prose-invert max-w-none">
                 <div dangerouslySetInnerHTML={{ __html: page.content.rendered }} />
               </Card>
             </FadeIn>
-            <div className="space-y-6">
-              {((page as any).acf || {}) && (
-                <FadeIn delay={200}>
-                  <Card>
-                    <h3 className="text-lg font-bold mb-4">Details</h3>
-                    <div className="space-y-4">
-                      {Object.entries((page as any).acf)
-                        .filter(([key, value]) =>
-                          !["description", "name", "facebook_profile", "email", "website"].includes(key)
-                        )
-                        .map(([key, value]) =>
-                          value ? (
-                            <div key={key}>
-                              <Badge variant="secondary" className="mb-1">
-                                {key.replace(/_/g, " ")}
-                              </Badge>
-                              <p className="text-sm">{String(value)}</p>
-                            </div>
-                          ) : null
-                        )}
-                    </div>
-                  </Card>
-                </FadeIn>
-              )}
-            </div>
+            {((page as any).acf || {}) && (
+              <FadeIn delay={200}>
+                <Card>
+                  <h3 className="text-lg font-bold mb-4">Details</h3>
+                  <div className="space-y-4">
+                    {Object.entries((page as any).acf)
+                      .filter(([key, value]) =>
+                        !["description", "name", "facebook_profile", "email", "website"].includes(key)
+                      )
+                      .map(([key, value]) =>
+                        value ? (
+                          <div key={key}>
+                            <Badge variant="secondary" className="mb-1">
+                              {key.replace(/_/g, " ")}
+                            </Badge>
+                            <p className="text-sm">{String(value)}</p>
+                          </div>
+                        ) : null
+                      )}
+                  </div>
+                </Card>
+              </FadeIn>
+            )}
           </div>
         </Container>
       </Section>
