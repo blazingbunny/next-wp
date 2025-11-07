@@ -8,7 +8,7 @@ import { mainMenu } from "@/menu.config";
 import { siteConfig } from "@/site.config";
 import { MobileNav } from "./mobile-nav";
 import { cn } from "@/lib/utils";
-import Logo from "@/public/logo.svg";
+import Logo from "../../public/images/cannafeatured-logo-medium.svg";
 
 export function MainNav() {
   const [isScrolled, setIsScrolled] = useState(false);

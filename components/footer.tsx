@@ -5,7 +5,7 @@ import { siteConfig } from "@/site.config";
 import { mainMenu, contentMenu } from "@/menu.config";
 import { ThemeToggle } from "@/components/theme/theme-toggle";
 import { Separator } from "@/components/ui/separator";
-import Logo from "@/public/logo.svg";
+import Logo from "../../public/images/cannafeatured-logo-small.svg";
 
 export function Footer() {
   return (
