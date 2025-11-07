@@ -8,7 +8,6 @@ import { mainMenu } from "@/menu.config";
 import { siteConfig } from "@/site.config";
 import { MobileNav } from "./mobile-nav";
 import { cn } from "@/lib/utils";
-import Logo from "../../public/images/cannafeatured-logo-medium.svg";
 
 export function MainNav() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -38,13 +37,12 @@ export function MainNav() {
           className="flex items-center gap-3 hover:opacity-80 transition-opacity"
         >
           <Image
-            src={Logo}
+            src="/images/cannafeatured-logo-medium.svg"
             alt={siteConfig.site_name}
-            width={42}
-            height={26.44}
-            className="dark:invert"
+            width={140}
+            height={88}
+            className="object-contain"
           />
-          <span className="font-bold text-lg">{siteConfig.site_name}</span>
         </Link>
 
         <div className="flex items-center gap-6">

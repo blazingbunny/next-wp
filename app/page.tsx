@@ -20,8 +20,8 @@ export default function Home() {
           <div className="flex flex-col items-center text-center space-y-8">
             <FadeIn>
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold max-w-3xl">
-                Build WordPress Sites with{" "}
-                <span className="text-primary">Next.js</span>
+                Showcasing the Best in{" "}
+                <span className="text-primary">Cannabis Culture</span>
               </h1>
             </FadeIn>
             <FadeIn delay={200}>
@@ -32,12 +32,12 @@ export default function Home() {
             <FadeIn delay={400}>
               <div className="flex gap-4">
                 <Button asChild size="lg">
-                  <Link href="/docs">
-                    Get Started <ArrowRight className="ml-2 h-4 w-4" />
+                  <Link href="/posts">
+                    Explore Stories <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
                 <Button asChild variant="outline" size="lg">
-                  <Link href="/posts">View Examples</Link>
+                  <Link href="/pages">Learn More</Link>
                 </Button>
               </div>
             </FadeIn>
@@ -50,35 +50,35 @@ export default function Home() {
         <Container>
           <FadeIn>
             <SectionTitle
-              title="Why Next-WP?"
-              subtitle="Next-WP combines the power of WordPress with modern development tools."
+              title="What We Offer"
+              subtitle="CannaFeatured brings together the best in cannabis culture, community, and content."
             />
           </FadeIn>
           <Grid className="mt-12">
             <FadeIn delay={200}>
               <Card hoverable>
                 <Code className="h-10 w-10 text-primary mb-6" />
-                <h3 className="text-xl font-bold mb-2">Modern Development</h3>
+                <h3 className="text-xl font-bold mb-2">Cannabis Culture</h3>
                 <p className="text-muted-foreground">
-                  Use TypeScript, React, and modern tooling while keeping WordPress as your CMS.
+                  Explore the rich history, traditions, and evolving culture of cannabis worldwide.
                 </p>
               </Card>
             </FadeIn>
             <FadeIn delay={400}>
               <Card hoverable>
                 <Laptop className="h-10 w-10 text-primary mb-6" />
-                <h3 className="text-xl font-bold mb-2">Easy Integration</h3>
+                <h3 className="text-xl font-bold mb-2">Community Stories</h3>
                 <p className="text-muted-foreground">
-                  Simple setup process with pre-built components and WordPress integration.
+                  Read inspiring stories from advocates, entrepreneurs, and everyday people in the cannabis space.
                 </p>
               </Card>
             </FadeIn>
             <FadeIn delay={600}>
               <Card hoverable>
                 <BarChart className="h-10 w-10 text-primary mb-6" />
-                <h3 className="text-xl font-bold mb-2">High Performance</h3>
+                <h3 className="text-xl font-bold mb-2">Industry Insights</h3>
                 <p className="text-muted-foreground">
-                  Get blazing fast page loads with server-side rendering and static generation.
+                  Stay informed with the latest news, trends, and developments in the cannabis industry.
                 </p>
               </Card>
             </FadeIn>
